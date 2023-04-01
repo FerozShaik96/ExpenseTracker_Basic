@@ -33,7 +33,7 @@ function App() {
     },
     {
       id: "e4",
-      title: "New Desk (Wooden)",
+      title: "Car Repair",
       amount: 450,
       date: new Date(2022, 5, 12),
       LocationOfExpenditure: "New Orliance ",
