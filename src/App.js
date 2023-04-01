@@ -35,7 +35,7 @@ function App() {
       id: "e4",
       title: "Car Repair",
       amount: 450,
-      date: new Date(2022, 5, 12),
+      date: new Date(2022, 9, 12),
       LocationOfExpenditure: "New Orliance ",
     },
   ];
