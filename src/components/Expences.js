@@ -1,7 +1,7 @@
-import "./App.css";
-import Expenses from "./components/Expences";
-
-function App() {
+import ExpenseItem from "./ExpenseItem";
+import Card from "./Card";
+import "./Expenses.css";
+function Expenses() {
   const expenses = [
     {
       id: "e1",
@@ -40,11 +40,20 @@ function App() {
     },
   ];
   return (
-    <div className="App">
-      <h1>Hello Bro</h1>
-      <Expenses></Expenses>
-    </div>
+    <Card className="expenses">
+      {expenses.map((expense, key) => {
+        return (
+          <div>
+            <ExpenseItem
+              title={expense.title}
+              amount={expense.amount}
+              date={expense.date}
+              location={expense.LocationOfExpenditure}
+            ></ExpenseItem>
+          </div>
+        );
+      })}
+    </Card>
   );
 }
-
-export default App;
+export default Expenses;
