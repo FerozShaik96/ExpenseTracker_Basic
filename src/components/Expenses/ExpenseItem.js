@@ -3,6 +3,9 @@ import ExpenseDate from "../Expenses/ExpenseDate";
 import "./ExpenseItem.css";
 import ExpenseDetails from "../Expenses/expenseDetails";
 function ExpenseItem(props) {
+  const clickHandler = (event) => {
+    event.target.parentNode.remove();
+  };
   return (
     <Card className="expense-item">
       <ExpenseDate date={props.date} />
@@ -11,6 +14,7 @@ function ExpenseItem(props) {
         location={props.location}
         amount={props.amount}
       />
+      <button onClick={clickHandler}>Change Title</button>
     </Card>
   );
 }
