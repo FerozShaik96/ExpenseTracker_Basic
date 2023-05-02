@@ -29,7 +29,7 @@ function Expenses() {
       title: "New Desk (Wooden)",
       amount: 450,
       date: new Date(2021, 5, 12),
-      LocationOfExpenditure: "New Orliance ",
+      LocationOfExpenditure: "Mystic Falls",
     },
     {
       id: "e4",

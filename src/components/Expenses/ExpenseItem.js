@@ -1,10 +1,15 @@
+import React, { useState } from "react";
 import Card from "../UI/Card";
 import ExpenseDate from "../Expenses/ExpenseDate";
 import "./ExpenseItem.css";
 import ExpenseDetails from "../Expenses/expenseDetails";
 function ExpenseItem(props) {
+  // useSate will return an Array with two vlaues in it , one is a variable and another one is a function
+
+  const [a, setAmount] = useState(props.amount);
   const clickHandler = (event) => {
-    event.target.parentNode.remove();
+    setAmount(100);
+    // event.target.parentNode.remove();
   };
   return (
     <Card className="expense-item">
@@ -12,7 +17,7 @@ function ExpenseItem(props) {
       <ExpenseDetails
         title={props.title}
         location={props.location}
-        amount={props.amount}
+        amount={a}
       />
       <button onClick={clickHandler}>Change Title</button>
     </Card>
