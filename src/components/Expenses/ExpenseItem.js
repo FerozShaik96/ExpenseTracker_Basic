@@ -12,15 +12,17 @@ function ExpenseItem(props) {
     // event.target.parentNode.remove();
   };
   return (
-    <Card className="expense-item">
-      <ExpenseDate date={props.date} />
-      <ExpenseDetails
-        title={props.title}
-        location={props.location}
-        amount={a}
-      />
-      <button onClick={clickHandler}>Change Title</button>
-    </Card>
+    <div>
+      <Card className="expense-item">
+        <ExpenseDate date={props.date} />
+        <ExpenseDetails
+          title={props.title}
+          location={props.location}
+          amount={a}
+        />
+        <button onClick={clickHandler}>Change Title</button>
+      </Card>
+    </div>
   );
 }
 export default ExpenseItem;

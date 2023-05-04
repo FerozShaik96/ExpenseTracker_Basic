@@ -1,10 +1,11 @@
 import "./App.css";
-import Expenses from "./components/Expenses/Expences";
+import NewExpense from "./components/NewExpence/NewExpenses";
+import Expenses from "./components/Expenses/Expenses";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello Bro</h1>
+      <NewExpense />
       <Expenses></Expenses>
     </div>
   );
