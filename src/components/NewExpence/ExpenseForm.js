@@ -1,18 +1,18 @@
 import "./ExpenseForm.css";
 import React, { useState } from "react";
 const ExpenseForm = () => {
-  const [title, enteredTitle] = useState("");
-  const [amount, enteredAmount] = useState("");
-  const [date, entereDate] = useState("");
+  const [enteredTitle, setEnteredTitle] = useState("");
+  const [enteredAmount, setEnteredAmount] = useState("");
+  const [entereDate, setEnteredDate] = useState("");
 
   const titleChangeHandler = (event) => {
-    enteredTitle(event.target.value);
+    setEnteredTitle(event.target.value);
   };
   const amountChangehadler = (event) => {
-    enteredAmount(event.target.value);
+    setEnteredAmount(event.target.value);
   };
   const dateChangeHandler = (event) => {
-    entereDate(event.target.value);
+    setEnteredDate(event.target.value);
   };
 
   //2nd way of doing
@@ -63,8 +63,17 @@ const ExpenseForm = () => {
   //     return { ...prevState, entereDate: event.target.value };
   //   });
   // };
+  const submitHandler = (event) => {
+    event.preventDefault();
+    const ExpenceData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(entereDate),
+    };
+    console.log(ExpenceData);
+  };
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expence__controls">
         <div className="new-expense__control">
           <label>Title</label>
