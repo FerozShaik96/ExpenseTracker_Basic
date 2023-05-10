@@ -72,7 +72,7 @@ const ExpenseForm = (props) => {
       title: enteredTitle,
       amount: enteredAmount,
       date: new Date(entereDate),
-      location: enterLocation,
+      LocationOfExpenditure: enterLocation,
     };
     props.onSaveExpenses(ExpenceData);
     setEnteredTitle("");

@@ -6,7 +6,7 @@ function NewExpense(props) {
       ...enteredExpensesData,
       id: Math.random().toString(),
     };
-    // console.log(expensesData);
+    console.log(expensesData.id);
     props.onAddExpenses(expensesData);
   };
   return (
