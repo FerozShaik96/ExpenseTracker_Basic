@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ExpenseItem from "./ExpenseItem";
+import ExpensesFilter from "./ExpensesFilter";
 import Card from "../UI/Card";
 import "./Expenses.css";
 import NewExpense from "../NewExpence/NewExpenses";
@@ -40,21 +41,46 @@ const Initial_Expenses = [
     LocationOfExpenditure: "New Orliance ",
   },
 ];
-function Expenses() {
+function Expenses(props) {
   const [expenses, setExpenses] = useState(Initial_Expenses);
   const addExpenseHandler = (expense) => {
     setExpenses((prevExpenses) => {
-      return [expense, ...prevExpenses];
+      // return [expense, ...prevExpenses];
+      const finalExpenses = [expense, ...prevExpenses];
+      return finalExpenses;
     });
   };
+  const [filteredYear, setFilteredYear] = useState("2020");
+  const filteredChangeHandler = (selectedYear) => {
+    setFilteredYear(selectedYear);
+  };
+  const filteredExpenses = expenses.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
+  let expensesContent = <p>No Expenses found</p>;
+  if (filteredExpenses.length > 0) {
+    expensesContent = filteredExpenses.map((expense) => (
+      <div key={expense.id}>
+        <ExpenseItem
+          title={expense.title}
+          amount={expense.amount}
+          date={expense.date}
+          location={expense.LocationOfExpenditure}
+        />
+      </div>
+    ));
+  }
   return (
     <div>
       <NewExpense onAddExpenses={addExpenseHandler} />
       <Card className="expenses">
-        {expenses.map((expense) => {
+        <ExpensesFilter
+          selectedYear={filteredYear}
+          onChangeFilter={filteredChangeHandler}
+        />
+        {/* {expenses.map((expense) => {
           return (
             <div key={expense.id}>
-              {/* key={expense.id} */}
               <ExpenseItem
                 title={expense.title}
                 amount={expense.amount}
@@ -63,7 +89,8 @@ function Expenses() {
               ></ExpenseItem>
             </div>
           );
-        })}
+        })} */}
+        {expensesContent}
       </Card>
     </div>
   );
