@@ -1,6 +1,7 @@
 import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
 import "./Expenses.css";
+import NewExpense from "../NewExpence/NewExpenses";
 function Expenses() {
   const expenses = [
     {
@@ -39,21 +40,27 @@ function Expenses() {
       LocationOfExpenditure: "New Orliance ",
     },
   ];
+  const addExpenseHandler = (expenses) => {
+    console.log(expenses);
+  };
   return (
-    <Card className="expenses">
-      {expenses.map((expense, key) => {
-        return (
-          <div>
-            <ExpenseItem
-              title={expense.title}
-              amount={expense.amount}
-              date={expense.date}
-              location={expense.LocationOfExpenditure}
-            ></ExpenseItem>
-          </div>
-        );
-      })}
-    </Card>
+    <div>
+      <NewExpense onAddExpenses={addExpenseHandler} />
+      <Card className="expenses">
+        {expenses.map((expense, key) => {
+          return (
+            <div>
+              <ExpenseItem
+                title={expense.title}
+                amount={expense.amount}
+                date={expense.date}
+                location={expense.LocationOfExpenditure}
+              ></ExpenseItem>
+            </div>
+          );
+        })}
+      </Card>
+    </div>
   );
 }
 export default Expenses;

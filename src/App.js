@@ -5,7 +5,6 @@ import Expenses from "./components/Expenses/Expenses";
 function App() {
   return (
     <div className="App">
-      <NewExpense />
       <Expenses></Expenses>
     </div>
   );
