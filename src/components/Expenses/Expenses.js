@@ -4,6 +4,7 @@ import Card from "../UI/Card";
 import "./Expenses.css";
 import ExpensesList from "./ExpensesList";
 import NewExpense from "../NewExpence/NewExpenses";
+
 const Initial_Expenses = [
   {
     id: "e1",
