@@ -58,7 +58,19 @@ function Expenses(props) {
     return expense.date.getFullYear().toString() === filteredYear;
   });
   let expensesContent = <p>No Expenses found</p>;
-  if (filteredExpenses.length > 0) {
+  if (filteredExpenses.length === 1) {
+    expensesContent = filteredExpenses.map((expense) => (
+      <div key={expense.id}>
+        <ExpenseItem
+          title={expense.title}
+          amount={expense.amount}
+          date={expense.date}
+          location={expense.LocationOfExpenditure}
+        />
+        <h3>Only single Expense here. Please add more...</h3>
+      </div>
+    ));
+  } else if (filteredExpenses.length > 0) {
     expensesContent = filteredExpenses.map((expense) => (
       <div key={expense.id}>
         <ExpenseItem
