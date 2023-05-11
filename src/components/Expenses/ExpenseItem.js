@@ -13,7 +13,7 @@ function ExpenseItem(props) {
   //   // event.target.parentNode.remove();
   // };
   return (
-    <div>
+    <li>
       <Card className="expense-item">
         <ExpenseDate date={props.date} />
         <ExpenseDetails
@@ -24,7 +24,7 @@ function ExpenseItem(props) {
         />
         {/* <button onClick={clickHandler}>Change Title</button> */}
       </Card>
-    </div>
+    </li>
   );
 }
 export default ExpenseItem;

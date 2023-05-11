@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import ExpenseItem from "./ExpenseItem";
 import ExpensesFilter from "./ExpensesFilter";
 import Card from "../UI/Card";
 import "./Expenses.css";
+import ExpensesList from "./ExpensesList";
 import NewExpense from "../NewExpence/NewExpenses";
 const Initial_Expenses = [
   {
@@ -57,31 +57,6 @@ function Expenses(props) {
   const filteredExpenses = expenses.filter((expense) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
-  let expensesContent = <p>No Expenses found</p>;
-  if (filteredExpenses.length === 1) {
-    expensesContent = filteredExpenses.map((expense) => (
-      <div key={expense.id}>
-        <ExpenseItem
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date}
-          location={expense.LocationOfExpenditure}
-        />
-        <h3>Only single Expense here. Please add more...</h3>
-      </div>
-    ));
-  } else if (filteredExpenses.length > 0) {
-    expensesContent = filteredExpenses.map((expense) => (
-      <div key={expense.id}>
-        <ExpenseItem
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date}
-          location={expense.LocationOfExpenditure}
-        />
-      </div>
-    ));
-  }
   return (
     <div>
       <NewExpense onAddExpenses={addExpenseHandler} />
@@ -102,7 +77,8 @@ function Expenses(props) {
             </div>
           );
         })} */}
-        {expensesContent}
+        {/* {expensesContent} */}
+        <ExpensesList item={filteredExpenses} />
       </Card>
     </div>
   );
