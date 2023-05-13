@@ -4,6 +4,7 @@ import Card from "../UI/Card";
 import "./Expenses.css";
 import ExpensesList from "./ExpensesList";
 import NewExpense from "../NewExpence/NewExpenses";
+import ExpensesChart from "./ExpensesChart";
 
 const Initial_Expenses = [
   {
@@ -66,6 +67,8 @@ function Expenses(props) {
           selectedYear={filteredYear}
           onChangeFilter={filteredChangeHandler}
         />
+        <ExpensesChart expenses={filteredExpenses} />
+        <ExpensesList item={filteredExpenses} />
         {/* {expenses.map((expense) => {
           return (
             <div key={expense.id}>
@@ -79,7 +82,6 @@ function Expenses(props) {
           );
         })} */}
         {/* {expensesContent} */}
-        <ExpensesList item={filteredExpenses} />
       </Card>
     </div>
   );
